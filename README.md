@@ -7,6 +7,9 @@
 
 > ⚙️ Rebooted version of the legendary LGLTeam Android Mod Menu. Fully maintained and modernized by **NepMods** to support all current Android versions and architectures.
 
+![Description of gif](ModMenuDocs/output.gif)
+
+
 ---
 
 ## 📦 Features
