@@ -1,49 +1,100 @@
-# Important
-It is with great regret that I have to announce that development work on Mod Menu Template and all pther projects will be permanently stopped. The reason for this is that I'm no longer interested in Android modding scene and due to health and changes in my personal life. And, I have sold my Android phone (now own an iPhone)
+# Android-Mod-Menu (LGLTeam Reboot by NepMods)
 
-I will delete my Telegram account and Github account in 1. november 2024. I will delete everything Android related from my PC forever
+![License](https://img.shields.io/github/license/NepMods/Android-Mod-Menu?style=flat-square)
+![Maintenance](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)
+![Architectures](https://img.shields.io/badge/arch-ARM,%20ARM64,%20x86,%20x86_64-blue?style=flat-square)
+![PRs](https://img.shields.io/badge/PRs-welcome-orange?style=flat-square)
 
-Please feel free to fork the project and make improvements, or find other modders who will continue to contribute to this project
+> ⚙️ Rebooted version of the legendary LGLTeam Android Mod Menu. Fully maintained and modernized by **NepMods** to support all current Android versions and architectures.
 
-The LGL Team Telegram channel will not be deleted since this channel is owned by Spring Musk https://t.me/Layout_musk
+---
 
-Goodbye everyone
+## 📦 Features
 
-# Introduction
-![GitHub](https://img.shields.io/github/license/LGLTeam/Android-Mod-Menu?style=flat-square)
+- Floating mod menu framework for Android native games
+- Supports `il2cpp`, Unity, and native binaries
+- Java/C++ hybrid with a dynamic in-game overlay
+- Menu styles: **LGL**, **DZ** with themes and layouts
+- Fully compatible with **ARMv7**, **ARM64**, **x86**, and **x86_64**
+- Feature-rich components: switches, sliders, input boxes, buttons, categories, spinners, etc.
+- Minimal permissions, overlay without root required
 
-Floating mod menu for il2cpp and other native android games. KittyMemory, MSHook, And64InlineHook and basic string obfuscator (AY obfuscator) included. Assets are stored as base64 in cpp and does not need to be stored under assets folder.
+---
 
-Support Android 4.4.x up to Android 15. ARMv7 and ARM64 are supported.
+## 🧱 Architecture
 
-![](Intro.gif)
+```
+📁 app/src/main/java/com/android/support
+├── base/                # Floating window manager
+├── interfaces/          # Modular interface design for menus
+├── ThemesData/          # LGL & DZ themed menu layouts and styles
+└── *.java               # Main activity, launcher, preferences, etc.
 
-# Known bug
-- Spinner does not show on some devices running Android 11. Should work again on Android 12
-- On some games, menu is using old layout such as Kitkat or Gingerbread when launched without permission. We have not found a way to fix it.
+📁 jni/
+├── Includes/            # Utility classes (e.g., memory patching)
+├── KittyMemory/         # Memory patching and scanning libs
+├── Menu/                # JNI bridge and mod menu implementation
+└── Main.cpp             # Entry point for native layer
+```
 
-# Getting started
- 
-See "Docs" folder
+---
 
-# Need help
+## 📂 Getting Started
 
-If you have an issue with Hooking and game crashes, you should go to the **support forums**. Here there are no teachers who can help you with such issues.
+### Requirements
 
-# Credits
-Thanks to the following individuals whose code helped me develop this mod menu
+- Android Studio + NDK + CMake
+- SDK 21+
+- Rooted or non-rooted device (overlay permission required)
 
-* Octowolve/Escanor - Mod menu: https://github.com/z3r0Sec/Substrate-Template-With-Mod-Menu and Hooking: https://github.com/z3r0Sec/Substrate-Hooking-Example
-* VanHoevenTR - Mod menu - https://github.com/LGLTeam/VanHoevenTR_Android_Mod_Menu
-* MrIkso - First mod menu template https://github.com/MrIkso/FloatingModMenu
-* MJx0 A.K.A Ruit - https://github.com/MJx0/KittyMemory
-* Rprop - https://github.com/Rprop/And64InlineHook
-* And everyone else who provided input and contributions to this project!
+### Build
 
-# License
-**GNU General Public License 3**
+```bash
+git clone https://github.com/NepMods/Android-Mod-Menu.git
+cd Android-Mod-Menu
+# Open in Android Studio or build using ndk-build / cmake
+```
 
-# Disclaimer
-This project is for Educational Use only. We do not condone this project being used to gain an advantage against other people. This project was made for fun. If you are using this project for modding/hacking PU*G, C*DM, and any other Tencent games, we ask you to STOP immediately!
+---
 
-Do not buy any source codes on Telegram even if the author can be trusted, there is always a risk getting scammed. We will not be responsible for that. This project is always FREE to use
+## 🧩 Components
+
+- `FloatingWindowManager` — Creates and manages the draggable overlay
+- `IFloatingBuilder` — Abstraction for service or activity-based windows
+- `IMenuBuilder` — Builds mod feature lists and UI components
+- `IMenuComponentFactory` — Generates switches, sliders, inputs, categories
+- `DZTheme` / `LGLTheme` — Themed variants of the mod menu
+- `KittyMemory` — Patching and memory manipulation utilities
+
+---
+
+## ✅ Contribution
+
+This project is **actively maintained**.
+
+- ✅ PRs welcome
+- ✅ Issues open for bug reports & feature requests
+- ✅ GPL-licensed, free to use, modify, and redistribute
+
+---
+
+## ⚠️ Disclaimer
+
+This project is for **educational and personal learning purposes only**.  
+Usage for cheating in competitive games or bypassing security in commercial software is **strictly discouraged**.
+
+> This is a community revival project. Do **not** buy paid clones or get scammed on Telegram. This is and will remain **free**.
+
+---
+
+## 🧠 Credits
+
+- Original Author: **LGLTeam** (archived)
+- Contributors:
+    - Octowolve / Escanor
+    - VanHoevenTR
+    - MrIkso
+    - MJx0 (KittyMemory)
+    - Rprop (And64InlineHook)
+
+Reboot maintained by: **NepMods**
