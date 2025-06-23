@@ -19,10 +19,20 @@ enum LogType {
 };
 
 #define TAG OBFUSCATE("Mod_Menu")
+#define DEBUG
+
+#ifdef DEBUG
 
 #define LOGD(...) ((void)__android_log_print(oDEBUG, TAG, __VA_ARGS__))
 #define LOGE(...) ((void)__android_log_print(oERROR, TAG, __VA_ARGS__))
 #define LOGI(...) ((void)__android_log_print(oINFO,  TAG, __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(oWARN,  TAG, __VA_ARGS__))
+#else
+#define LOGD(...)
+#define LOGE(...)
+#define LOGI(...)
+#define LOGW(...)
+
+#endif
 
 #endif /* Logger_h */

@@ -4,21 +4,10 @@
 
 #include "KittyMemory/MemoryPatch.hpp"
 #include "KittyMemory/KittyInclude.hpp"
-
-#if defined(__aarch64__) //Compile for arm64 lib only
-#include <And64InlineHook/And64InlineHook.hpp>
-#else //Compile for armv7 lib only.
-#include <Substrate/SubstrateHook.h>
-#include <Substrate/CydiaSubstrate.h>
-#endif
-
+#include "Dobby/dobby.h"
 void hook(void *offset, void* ptr, void **orig)
 {
-#if defined(__aarch64__)
-    A64HookFunction(offset, ptr, orig);
-#else
-    MSHookFunction(offset, ptr, orig);
-#endif
+    DobbyHook(offset, ptr, orig);
 }
 
 #define HOOK(lib, offset, ptr, orig) hook((void *)getAbsoluteAddress(lib, offset), (void *)ptr, (void **)&orig)
@@ -32,11 +21,6 @@ void patchOffset(const char *libName, uint64_t offset, std::string hexBytes)
     ElfScanner g_il2cppELF = ElfScanner::createWithPath(libName);
     uintptr_t il2cppBase = g_il2cppELF.base();
     MemoryPatch patch = MemoryPatch::createWithHex(il2cppBase + offset, hexBytes);
-
-    // LOGI(OBFUSCATE("Base: 0x%llx"), il2cppBase);
-    // LOGI(OBFUSCATE("Off: 0x%llx"), offset);
-
-    // LOGI("Current Bytes: %s", patch.get_CurrBytes().c_str());
 
     if (!patch.isValid())
     {
