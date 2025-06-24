@@ -176,7 +176,7 @@ public class LGLMenu implements IMenuBuilder {
     TextView buildSettings() {
         //********** Settings icon **********
         TextView settings = new TextView(sharedData.getContext); //Android 5 can't show ⚙, instead show other icon instead
-        settings.setText(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M ? "⚙" : "\uD83D\uDD27");
+        settings.setText(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? "⚙" : "\uD83D\uDD27");
         settings.setTextColor(sharedData.MenuStyle.getTextColor());
         settings.setTypeface(Typeface.DEFAULT_BOLD);
         settings.setTextSize(20.0f);

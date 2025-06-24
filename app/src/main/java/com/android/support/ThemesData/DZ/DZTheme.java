@@ -16,7 +16,7 @@ public class DZTheme implements IMenuTheme {
      *
      */
     @Override
-    public void Init(Context context, IMenuData menuData) {
+    public void Init(Context context, final IMenuData menuData) {
         shared = new DZShared();
         windowManager = new FloatingWindowManager(context, shared);
         DZMain main = new DZMain(context, shared);

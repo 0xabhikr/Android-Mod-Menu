@@ -16,7 +16,7 @@ public class LGLTheme implements IMenuTheme {
      *
      */
     @Override
-    public void Init(Context context, IMenuData menuData) {
+    public void Init(Context context, final IMenuData menuData) {
         shared = new LGLShared();
         windowManager = new FloatingWindowManager(context, shared);
         LGLMain main = new LGLMain(context, shared);

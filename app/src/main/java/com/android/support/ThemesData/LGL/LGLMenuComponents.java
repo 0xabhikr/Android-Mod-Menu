@@ -56,7 +56,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param swiOn
      */
     @Override
-    public void Switch(LinearLayout linLayout, int featNum, String featName, boolean swiOn) {
+    public void Switch(LinearLayout linLayout, final int featNum, final String featName, boolean swiOn) {
         final Switch switchR = new Switch(sharedData.getContext);
         ColorStateList buttonStates = new ColorStateList(
                 new int[][]{
@@ -111,7 +111,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param max
      */
     @Override
-    public void SeekBar(LinearLayout linLayout, int featNum, String featName, int min, int max) {
+    public void SeekBar(LinearLayout linLayout, final int featNum, final String featName, final int min, final int max) {
         int loadedProg = Preferences.loadPrefInt(featName, featNum);
         LinearLayout linearLayout = new LinearLayout(sharedData.getContext);
         linearLayout.setPadding(10, 5, 0, 5);
@@ -156,7 +156,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param featName
      */
     @Override
-    public void Button(LinearLayout linLayout, int featNum, String featName) {
+    public void Button(LinearLayout linLayout, final int featNum, final String featName) {
         final Button button = new Button(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -191,7 +191,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param url
      */
     @Override
-    public void ButtonLink(LinearLayout linLayout, String featName, String url) {
+    public void ButtonLink(LinearLayout linLayout, final String featName, final String url) {
         final Button button = new Button(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -218,7 +218,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param switchedOn
      */
     @Override
-    public void ButtonOnOff(LinearLayout linLayout, int featNum, String featName, boolean switchedOn) {
+    public void ButtonOnOff(LinearLayout linLayout, final int featNum, final String featName, final boolean switchedOn) {
         final Button button = new Button(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -265,7 +265,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param list
      */
     @Override
-    public void Spinner(LinearLayout linLayout, int featNum, String featName, String list) {
+    public void Spinner(LinearLayout linLayout,final int featNum,final String featName, final String list) {
         Log.d(sharedData.MenuStyle.getTag(), "spinner " + featNum + " " + featName + " " + list);
         final List<String> lists = new LinkedList<>(Arrays.asList(list.split(",")));
 
@@ -309,7 +309,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param maxValue
      */
     @Override
-    public void InputNum(LinearLayout linLayout, int featNum, String featName, int maxValue) {
+    public void InputNum(LinearLayout linLayout,final int featNum, final String featName, final int maxValue) {
         LinearLayout linearLayout = new LinearLayout(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -404,7 +404,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param maxValue
      */
     @Override
-    public void InputLNum(LinearLayout linLayout, int featNum, String featName, long maxValue) {
+    public void InputLNum(LinearLayout linLayout, final int featNum, final String featName, final long maxValue) {
         LinearLayout linearLayout = new LinearLayout(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -499,7 +499,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param featName
      */
     @Override
-    public void InputText(LinearLayout linLayout, int featNum, String featName) {
+    public void InputText(LinearLayout linLayout, final int featNum, final String featName) {
         LinearLayout linearLayout = new LinearLayout(sharedData.getContext);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParams.setMargins(7, 5, 7, 5);
@@ -579,7 +579,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param switchedOn
      */
     @Override
-    public void CheckBox(LinearLayout linLayout, int featNum, String featName, boolean switchedOn) {
+    public void CheckBox(LinearLayout linLayout, final int featNum, final String featName, boolean switchedOn) {
         final CheckBox checkBox = new CheckBox(sharedData.getContext);
         checkBox.setText(featName);
         checkBox.setTextColor(sharedData.MenuStyle.getTextColor2());
@@ -606,7 +606,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param list
      */
     @Override
-    public void RadioButton(LinearLayout linLayout, int featNum, String featName, String list) {
+    public void RadioButton(LinearLayout linLayout, final int featNum, final String featName, final String list) {
         //Credit: LoraZalora
         final List<String> lists = new LinkedList<>(Arrays.asList(list.split(",")));
 
@@ -652,7 +652,7 @@ public class LGLMenuComponents implements IMenuComponentFactory {
      * @param expanded
      */
     @Override
-    public void Collapse(LinearLayout linLayout, String text, boolean expanded) {
+    public void Collapse(LinearLayout linLayout, final String text, final boolean expanded) {
         LinearLayout.LayoutParams layoutParamsLL = new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
         layoutParamsLL.setMargins(0, 5, 0, 0);
 
